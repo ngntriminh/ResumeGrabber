@@ -25,25 +25,18 @@ async function getData(_dataType) {
   try {
     document.getElementById("spinner-loading-resumes").style.display = "block";
     let resumes = [];
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    });
-    if (!response.ok) {
-      displayAlert(container, false, "Please sign in at");
-    }
-    const data = await response.json();
-    _dataType === "resumes"
-      ? (resumes = data.resumes)
-      : (resumes = data.coverLetters);
-    if (resumes?.length === 0) {
-      displayAlert(container, true, "Nothing here yet. Try to create one on");
-    } else {
+    const response = await axios.get(url);
+    if (response.status === 200) {
+      _dataType === "resumes"
+        ? (resumes = response.data?.resumes)
+        : (resumes = response.data?.coverLetters);
+      if (resumes?.length === 0) {
+        displayAlert(container, true, "Nothing here yet. Try to create one on");
+      }
       displayResumes(resumes);
     }
+  } catch {
+    displayAlert(container, false, "Please sign in at");
   } finally {
     document.getElementById("spinner-loading-resumes").style.display = "none";
   }
