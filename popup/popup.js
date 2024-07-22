@@ -113,7 +113,7 @@ function displayResumes(_resumes) {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = "resume.pdf";
+          a.download = _resume.name;
           a.click();
           URL.revokeObjectURL(url);
         } catch (error) {
@@ -128,7 +128,7 @@ class ResumeIODownloader {
     this.renderingToken = renderingToken;
     this.extension = extension;
     this.imageSize = imageSize;
-    this.cacheDate = new Date().toISOString().slice(0, -5) + "Z";
+    this.cacheDate = new Date(Date.now()).toISOString().slice(0, -5) + "Z";
     this.METADATA_URL = `https://ssr.resume.tools/meta/${renderingToken}?cache=${this.cacheDate}`;
     this.IMAGES_URL = `https://ssr.resume.tools/to-image/${renderingToken}-{pageId}.${extension}?cache=${this.cacheDate}&size=${imageSize}`;
   }
@@ -179,7 +179,7 @@ class ResumeIODownloader {
       });
       const res = await worker.recognize(
         images[i],
-        { pdfTitle: "Example PDF" },
+        { pdfTitle: "" },
         { pdf: true }
       );
 
@@ -191,14 +191,31 @@ class ResumeIODownloader {
         pdfDoc.addPage(embeddedPage);
 
         const metadataPage = this.metadata[i];
+        const { width, height } = embeddedPage.getSize();
+        const scaleWidth = width / metadataPage.viewport.width;
+        const scaleHeight = height / metadataPage.viewport.height;
+        const annotations = [];
+
         for (const link of metadataPage.links) {
-          const annotation = await pdfDoc.createAnnotation({
-            type: "link",
-            rect: [link.x, link.y, link.x + link.w, link.y + link.h],
-            url: link.url,
-          });
-          embeddedPage.node.addAnnotation(annotation);
+          const rect = [
+            link.left * scaleWidth,
+            link.top * scaleHeight,
+            (link.left + link.width) * scaleWidth,
+            (link.top + link.height) * scaleHeight,
+          ];
+          const annotation = createPageLinkAnnotation(
+            embeddedPage,
+            link.url,
+            rect
+          );
+          annotations.push(annotation);
         }
+
+        if (annotations.length > 0) {
+          const annotsArray = pdfDoc.context.obj(annotations);
+          embeddedPage.node.set(PDFLib.PDFName.of("Annots"), annotsArray);
+        }
+
         console.log("PDF successfully downloaded with PDF-lib.");
       } catch (error) {
         console.error("Error loading PDF with PDF-lib:", error);
@@ -218,3 +235,20 @@ class ResumeIODownloader {
     }
   }
 }
+
+const createPageLinkAnnotation = (page, uri, rect) => {
+  const context = page.doc.context;
+  return context.register(
+    context.obj({
+      Type: "Annot",
+      Subtype: "Link",
+      Rect: rect,
+      Border: [0, 0, 0],
+      A: {
+        Type: "Action",
+        S: "URI",
+        URI: PDFLib.PDFString.of(uri),
+      },
+    })
+  );
+};
