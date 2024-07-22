@@ -87,7 +87,7 @@ function displayResumes(_resumes) {
                   <path
                       d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0" />
               </svg>
-              <span>Download</span>
+              <span id="download-resume">Download</span>
           </button>
 
           <button class="d-flex align-items-center btn-sm" style="background-color: #f8f9fa;" type="button"
@@ -102,5 +102,119 @@ function displayResumes(_resumes) {
       </div>
     `;
     container.appendChild(listItem);
+
+    document
+      .getElementById("download-resume")
+      .addEventListener("click", async () => {
+        const downloader = new ResumeIODownloader(_resume.renderingToken);
+        try {
+          const pdfBytes = await downloader.generatePdf();
+          const blob = new Blob([pdfBytes], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "resume.pdf";
+          a.click();
+          URL.revokeObjectURL(url);
+        } catch (error) {
+          console.error("Failed to download resume:", error);
+        }
+      });
   });
+}
+
+class ResumeIODownloader {
+  constructor(renderingToken, extension = "jpeg", imageSize = 3000) {
+    this.renderingToken = renderingToken;
+    this.extension = extension;
+    this.imageSize = imageSize;
+    this.cacheDate = new Date().toISOString().slice(0, -5) + "Z";
+    this.METADATA_URL = `https://ssr.resume.tools/meta/${renderingToken}?cache=${this.cacheDate}`;
+    this.IMAGES_URL = `https://ssr.resume.tools/to-image/${renderingToken}-{pageId}.${extension}?cache=${this.cacheDate}&size=${imageSize}`;
+  }
+
+  async getResumeMetadata() {
+    try {
+      const response = await axios.get(this.METADATA_URL);
+      this.raiseForStatus(response);
+      this.metadata = response.data.pages;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to get resume metadata");
+    }
+  }
+
+  async downloadImages() {
+    const images = [];
+    for (let pageId = 1; pageId <= this.metadata.length; pageId++) {
+      const imageUrl = this.IMAGES_URL.replace("{pageId}", pageId);
+      const image = await this.downloadImageFromUrl(imageUrl);
+      images.push(image);
+    }
+    return images;
+  }
+
+  async downloadImageFromUrl(url) {
+    try {
+      const response = await axios.get(url, { responseType: "arraybuffer" });
+      this.raiseForStatus(response);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to download image");
+    }
+  }
+
+  async generatePdf() {
+    await this.getResumeMetadata();
+    const images = await this.downloadImages();
+    const pdfDoc = await PDFLib.PDFDocument.create();
+
+    for (let i = 0; i < images.length; i++) {
+      const { createWorker } = Tesseract;
+      const worker = await createWorker("eng", 1, {
+        corePath: chrome.runtime.getURL("/libs/tesseract-core.wasm.js"),
+        workerPath: chrome.runtime.getURL("/libs/worker.min.js"),
+        workerBlobURL: false,
+      });
+      const res = await worker.recognize(
+        images[i],
+        { pdfTitle: "Example PDF" },
+        { pdf: true }
+      );
+
+      const pagePdf = res.data.pdf;
+
+      try {
+        const embeddedPdf = await PDFLib.PDFDocument.load(pagePdf);
+        const [embeddedPage] = await pdfDoc.copyPages(embeddedPdf, [0]);
+        pdfDoc.addPage(embeddedPage);
+
+        const metadataPage = this.metadata[i];
+        for (const link of metadataPage.links) {
+          const annotation = await pdfDoc.createAnnotation({
+            type: "link",
+            rect: [link.x, link.y, link.x + link.w, link.y + link.h],
+            url: link.url,
+          });
+          embeddedPage.node.addAnnotation(annotation);
+        }
+        console.log("PDF successfully downloaded with PDF-lib.");
+      } catch (error) {
+        console.error("Error loading PDF with PDF-lib:", error);
+      }
+      await worker.terminate();
+    }
+
+    const pdfBytes = await pdfDoc.save();
+    return pdfBytes;
+  }
+
+  raiseForStatus(response) {
+    if (response.status !== 200) {
+      throw new Error(
+        `Unable to download resume (rendering token: ${this.renderingToken})`
+      );
+    }
+  }
 }

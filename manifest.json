@@ -9,19 +9,8 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": [
-        "/libs/axios.min.js",
-        "/libs/pdf-lib.min.js",
-        "/libs/tesseract.min.js",
-        "content.js"
-      ]
-    }
-  ],
-  "permissions": ["tabs", "storage"],
-  "host_permissions": ["https://*.resume.io/*"],
+  "permissions": ["activeTab", "tabs", "storage", "scripting", "downloads"],
+  "host_permissions": ["https://*.resume.io/*", "https://*.resume.tools/*"],
   "action": {
     "default_popup": "/popup/popup.html",
     "default_icon": {
@@ -30,5 +19,14 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     }
-  }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["/libs/worker.min.js", "/libs/tesseract-core.wasm.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
