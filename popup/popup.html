@@ -23,14 +23,14 @@
                 <h5 class="mt-0 mb-1">Resume Grabber
                     <small class="text-muted">v1.0.0</small>
                 </h5>
-                <small class="text-muted">by ngntriminh with 🖤</small>
+                <small class="text-muted">by <a id="github" href="#">ngntriminh</a> with 🖤</small>
             </div>
         </div>
 
         <div class="content">
             <div class="d-flex mb-4">
-                <button class="d-flex align-items-center btn-sm mr-2" style="background-color: #f8f9fa;" type="button"
-                    id="githubButton">
+                <button id="githubrepo" class="d-flex align-items-center btn-sm mr-2" style="background-color: #f8f9fa;"
+                    type="button" id="githubButton">
                     <svg xmlns="http://www.w3.org/2000/svg" style="height: 1em;" fill="currentColor"
                         class="bi bi-github mr-1" viewBox="0 0 16 16">
                         <path
@@ -63,18 +63,22 @@
             </div>
 
             <div id="resume-container"></div>
-        </div>
 
-        <small class='caution text-muted mt-4'>If your data on resume.io isn't up-to-date, relaunch the extension. <br>
-            NOTE: The PDF quality may not match the direct download from resume.io, but it's still beautiful and
-            usable.</small>
+            <small class="mt-4">Get stuck? Watch this <a id="youtubetutorial" href="#">tutorial</a>.</small>
+            <small class="">Working? Buy me a <a id="buymeacoffee" href="#">coffee</a> to support me!</small>
+        </div>
     </div>
+
     <script src="/miscellaneous/jquery-3.7.1.slim.min.js"></script>
     <script src="/miscellaneous/bootstrap.bundle.min.js"></script>
     <script src="/libs/axios.min.js"></script>
     <script src="/libs/pdf-lib.min.js"></script>
     <script src="/libs/tesseract.min.js"></script>
     <script src=" /popup/popup.js"></script>
+    <script src="/downloadHandler.js"></script>
+    <script src="/utils/formatDate.js"></script>
+    <script src="/utils/timeAgo.js"></script>
+    <script src="/utils/formatTemplateName.js"></script>
 </body>
 
 </html>

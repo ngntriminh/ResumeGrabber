@@ -7,7 +7,7 @@ html {
 
 .main {
   width: 350px;
-  height: 450px;
+  height: auto;
   user-select: none;
   padding: 15px;
   display: flex;
