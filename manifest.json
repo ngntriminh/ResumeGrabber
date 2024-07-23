@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Resume Grabber",
+  "description": "Download resumes/cover letters from resume.io for free.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["activeTab", "tabs", "storage", "scripting", "downloads"],
+  "host_permissions": ["https://*.resume.io/*", "https://*.resume.tools/*"],
+  "action": {
+    "default_popup": "/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["/libs/worker.min.js", "/libs/tesseract-core.wasm.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
