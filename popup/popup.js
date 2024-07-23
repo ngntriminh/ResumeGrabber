@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   clickableYouTubeTutorial.addEventListener("click", function (event) {
     event.preventDefault();
     chrome.tabs.create({
-      url: "https://www.youtube.com",
+      url: "https://youtu.be/0fU0Y4R2-1A?si=XKixK1RqoWlAGoBy",
     });
   });
   clickableBuyMeACoffee.addEventListener("click", function (event) {
