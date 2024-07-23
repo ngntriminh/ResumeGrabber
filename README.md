@@ -1,5 +1,6 @@
 # ResumeGrabber
 
+![GitHub Release](https://img.shields.io/github/v/release/ngntriminh/ResumeGrabber)
 
 Hello! This Chrome extension helps you download any resume or cover letter created on resume.io for FREE. I understand the frustration of having to purchase a $2.95 weekly subscription just to download a resume, so I created this extension to save you time and money.
 
