@@ -10,6 +10,16 @@
 
 Hello! This Chrome extension helps you download any resume or cover letter created on resume.io for FREE. I understand the frustration of having to purchase a $2.95 weekly subscription just to download a resume, so I created this extension to save you time and money.
 
+
+| Browser | Supported & Tested |
+|--|--|
+|<p align="center">Google Chrome</p><p align="center"><img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihb28mNXNn0zCPPVfdpCpYNS8En9ajX5xMcNuA5CTyCoAAuAqsIAYEP3Y_6fZzOu8gLDupUH9CjL0Jsoz-73mVIccSaHmHVwWhg=s1600-rw-v1" width="48" height="48"/> </a></p>| Supported ✅ <br> Tested ✅ |
+|<p align="center">Microsoft Edge</p><p align="center"><img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYg6M4VzF9HBPMe2BuFF4zh1UYctfyc90Y5IT57dERLXaBMq2VQsKiTv-ydzwXukGNh_nswEmN1S-lquqUFPvOWdtTy2Yb2EQ=s1600-rw-v1" width="48" height="48"/> </a></p>| Supported ✅ <br> Tested ✅ |
+|<p align="center">Opera</p><p align="center"><img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZB0UgKf70ROoXZ3i6hVBWvhLvEbvQqXIxDALoN4u3ULRjy4sblzeI_iBm4Cf6rGhTC47IklQ9gsWyb9OKL5auPYj7D7dUdUAU=s1600-rw-v1" width="48" height="48"/> </a></p>| Supported ✅ <br> Tested ✅ |
+|<p align="center">Other Chromium-based <br> browsers</p>| Supported ✅ <br> Should work fine 🆗 |
+|<p align="center">Mozilla Firefox</p><p align="center"><img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihbpGJc6OmaaZoeLTm6cag9ayHPKc1Z0L-EHmii5phpwhB3lqBWPa61UFYSkMT0rvCz-IPcsB4uEFTVX1t388ESO830PqA6ApLo=s1600-rw-v1" width="48" height="48"/> </a></p>| Supported ❌ <br> Coming soon ⏳ |
+|<p align="center">Safari</p><p align="center"><img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihbdP9Nr9vq5ktbrx8Hu09xN_HOBDyn2t_zU6egmotOmGS-XAe2QpE_D9KX-JgCtfktZyjsUnGAqkFN8nOEp4ppw7fpMSvgEQw=s1600-rw-v1" width="48" height="48"/> </a></p>| Supported ❌ |
+
 # Contents
 
  1. [About ResumeGrabber](#resumegrabber)  
