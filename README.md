@@ -19,13 +19,15 @@ Hello! This Chrome extension helps you download any resume or cover letter creat
  5. [Contribute and Support](#contribute-and-support)
  6. [Acknowledgement](#acknowledgement)
 
-> **TL;DR:** Watch this tutorial on YouTube to know how to install and use it!
+> **TL;DR:** Watch this [tutorial](https://youtu.be/0fU0Y4R2-1A?si=PBxK8ebHarJiCl7-) on YouTube to know how to install and use it!
 
 # How to install
 
--   Go to the release page and download the latest version.
+-   Go to the [release](https://github.com/ngntriminh/ResumeGrabber/releases) page and download the latest version **.zip** file.
+
+- Extract the **.zip** file to get the **ResumeGrabber** folder inside if it is not extracted yet.
     
--   Open  `chrome://extensions`  in your Chromium-based browser (e.g., Chrome, Edge). Enable  `Developer mode`, then drag and drop the  **.crx**  file you downloaded into the browser.
+-   Open  `chrome://extensions`  in your Chromium-based browser (e.g., Chrome, Edge). Enable  `Developer mode`, then drag and drop the  **ResumeGrabber** folder into the browser.
     
 -   For quick access, you can pin the extension.
 
