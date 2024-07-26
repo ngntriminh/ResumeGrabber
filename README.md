@@ -101,8 +101,7 @@ Just switch to `Cover letters` using the dropdown menu and follow the same steps
 -   You can also buy me a [coffee](https://www.buymeacoffee.com/ngntriminh) to show your support—your contribution will be a great motivation for me 🖤.
 
 <div align="center">
-  <a href="https://www.buymeacoffee.com/ngntriminh" target="_blank">
-    <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" />
+  <a href="https://www.buymeacoffee.com/ngntriminh"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=ngntriminh&button_colour=5F7FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" />
   </a>
 </div>
 
