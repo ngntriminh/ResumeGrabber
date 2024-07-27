@@ -73,7 +73,7 @@ Just switch to `Cover letters` using the dropdown menu and follow the same steps
 <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihbNDkgTh2ge7M-CdaxqEe_4nbog9ik50gza3lFic5jpFGn8UJaLSzsPPeEqzyQunBtLfam31enoNoV2WoQMm3dcnt0ormUCE_Q=s2560" width="300" height="300">
 </p>
 
-## Why I don't see any resume or cover letter?
+## Why I don't see a resume or cover letter?
 
 - Because you have not [signed in](#sign-in-first) at resume.io. 
 - Because you've deleted your resume or cover letter or haven't created one yet, simply create one on resume.io and relaunch the extension. The image below illustrates this.
@@ -84,13 +84,15 @@ Just switch to `Cover letters` using the dropdown menu and follow the same steps
 
 # Important Notes
 
+- I **CANNOT** access your resumes. Your data is completely private and secure. The downloading process happens only on your side, so nobody knows about your resumes.
+
 -   This extension uses OCR technology to scan images of resumes and convert them into PDF files. As a result, the PDFs contain images rather than text. Consequently, the quality of the downloaded PDF may not be as high as when you download it directly from resume.io, but rest assured it remains visually appealing and functional.
     
 - Only *English* is supported at the moment.
      
 -   Links as annotations work fine; make sure to format links as  `https://...`  for them to be recognized correctly. Without this format, they may not function as links.
     
--   This extension may cease to work in the future if resume.io changes their back-end endpoints. I will do my best to keep it functional, but for now, it works perfectly.
+-   This extension may cease to work in the future if resume.io changes its back-end endpoints. I will do my best to keep it functional, but for now, it works perfectly.
     
 -   This project is open-sourced, and the extension is free to use for non-commercial purposes. If you notice anyone using this extension for profit, please report it to me at  minh.ngntri@gmail.com.
 
@@ -111,9 +113,9 @@ This project cannot be done without:
 
 | Project & Author | Contribution |
 |--|--|
-|[resumeio-to-pdf](https://github.com/felipeall/resumeio-to-pdf) by [felipeall](https://github.com/felipeall) | Felipe's amazing Python-based application for downloading resumes from resume.io is truly a lifesaver! Thanks to his great effort, I was able to convert the solution into this extension. You can show your appreciation by giving his repo a star [here](https://github.com/felipeall/resumeio-to-pdf).  |
+|[resumeio-to-pdf](https://github.com/felipeall/resumeio-to-pdf) by [felipeall](https://github.com/felipeall) | Felipe's amazing Python-based application for downloading resumes from resume.io is truly a lifesaver! Thanks to his great effort, I could convert the solution into this extension. You can show your appreciation by giving his repo a star [here](https://github.com/felipeall/resumeio-to-pdf).  |
 |[tesseract.js](https://github.com/naptha/tesseract.js) by [naptha](https://github.com/naptha) | Pure Javascript OCR for more than 100 languages. |
 |[pdf-lib](https://github.com/Hopding/pdf-lib) by [Hopding](https://github.com/Hopding) | Create and modify PDF documents in any JavaScript environment. |
-|[axios](https://github.com/axios/axios)| Promise based HTTP client for the browser and node.js. |
-|[bootstrap](https://github.com/twbs/bootstrap)| The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. |
+|[axios](https://github.com/axios/axios)| Promise-based HTTP client for the browser and node.js. |
+|[bootstrap](https://github.com/twbs/bootstrap)| The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile-first projects on the web. |
 |[ChatGPT](https://chatgpt.com) by [OpenAI](https://openai.com) | Special thanks to OpenAI's ChatGPT for assistance with this project. |
