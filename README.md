@@ -103,7 +103,7 @@ Just switch to `Cover letters` using the dropdown menu and follow the same steps
 -   You can also buy me a [coffee](https://www.buymeacoffee.com/ngntriminh) to show your support—your contribution will be a great motivation for me 🖤.
 
 <div align="center">
-  <a href="https://www.buymeacoffee.com/ngntriminh"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=ngntriminh&button_colour=5F7FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" />
+  <a href="https://www.buymeacoffee.com/ngntriminh"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=ngntriminh&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" />
   </a>
 </div>
 
