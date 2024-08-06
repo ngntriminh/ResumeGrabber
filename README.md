@@ -36,7 +36,8 @@ Hello! This Chrome extension helps you download any resume or cover letter creat
 
 -   Go to the [release](https://github.com/ngntriminh/ResumeGrabber/releases) page and download the latest version **.zip** file.
 
-- Extract the **.zip** file to get the **ResumeGrabber** folder inside if it is not extracted yet. If, after extracting the .zip file, you have a folder named **ResumeGrabber_vX.X.X**, it is just a folder created based on the name of the .zip file and not the extension itself. Please go inside that folder and drag the **only** folder named **ResumeGrabber** into the browser to install it. Please choose the correct folder to avoid a manifest missing error.
+- Extract the **.zip** file to get the **ResumeGrabber** folder inside if it is not extracted yet.
+- **IMPORTANT:** If, after extracting the .zip file, you have a folder named **ResumeGrabber_vX.X.X**, it is just a folder created based on the name of the .zip file and not the extension itself. Please go inside that folder and drag the **only** folder named **ResumeGrabber** into the browser to install it. Please choose the correct folder to avoid a manifest missing error.
     
 -   Open  `chrome://extensions`  in your Chromium-based browser (e.g., Chrome, Edge). Enable  `Developer mode`, then drag and drop the  **ResumeGrabber** folder into the browser.
     
