@@ -90,7 +90,7 @@ Just switch to `Cover letters` using the dropdown menu and follow the same steps
 
 -   This extension uses OCR technology to scan images of resumes and convert them into PDF files. As a result, the PDFs contain images rather than text. Consequently, the quality of the downloaded PDF may not be as high as when you download it directly from resume.io, but rest assured it remains visually appealing and functional.
     
-- Only *English* is supported at the moment.
+- Only *English* is supported at the moment, more coming soon. If you need more languages, please request me, I'll try my best.
      
 -   Links as annotations work fine; make sure to format links as  `https://...`  for them to be recognized correctly. Without this format, they may not function as links.
     
